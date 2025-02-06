@@ -4,15 +4,16 @@ public class aula01{
         
         System.out.print("Hello word!!");
         System.out.println("ola, ola");
-        String nome;
-        int idade;
-        float valor;
-        boolean vf;
+        int x, y,z;
+       
         
         Scanner sc = new Scanner(System.in);
-        System.out.print("Digite a sua idade: ");
-        idade = sc.nextInt();
-        System.out.println("Voce tem "+ idade +" anos,");
+        System.out.print("Digite um nuemro: ");
+        x = sc.nextInt();
+        System.out.print("Digite um numero: ");
+        y = sc.nextInt();
+        z = (x+y) * y * y;
+        System.out.println("seu numero:"+ z +" ");
     }
     
 }
