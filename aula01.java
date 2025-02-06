@@ -22,15 +22,15 @@ public class aula01{
           nota1= sc.nextInt();
           System.out.println("Digite a segunda prova: ");
           nota2= sc.nextInt();
+          p2 = 10-nota1;
+          notafinal = ((nota1* nota1) + (nota2 + p2)) / (nota1 + nota2);
+          System.out.println("Nota final: "+notafinal+"");
 //Fahrenheit para Celsius
          float c, f;
                 System.out.print("Graus: ");
                 c = sc.nextFloat();
                 f =(c - 32)*5/9;
                 System.out.print(+ f);
-          p2 = 10-nota1;
-          notafinal = ((nota1* nota1) + (nota2 + p2)) / (nota1 + nota2);
-          System.out.println("Nota final: "+notafinal+"");
             
     }
     }
