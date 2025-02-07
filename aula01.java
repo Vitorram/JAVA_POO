@@ -31,6 +31,17 @@ public class aula01{
                 c = sc.nextFloat();
                 f =(c - 32)*5/9;
                 System.out.print(+ f);
+//Sistema de juros simples basico
+        float juros, imovel, capitalInicial, taxa, tempoDeAplicacao;
+        System.out.print("capital inicial: ");
+        capitalInicial = sc.nextFloat();
+        System.out.print("taxa de juros: ");
+        taxa = sc.nextFloat();
+        System.out.print("tempo de aplicação: ");
+        tempoDeAplicacao = sc.nextFloat();
+        
+        juros = capitalInicial*(taxa/100)*tempoDeAplicacao;
+        System.out.println("O valor do juros simples é: R$ " + juros);
             
     }
     }
