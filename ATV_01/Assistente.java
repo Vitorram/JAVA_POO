@@ -1,12 +1,13 @@
+
+package ATV_01;
 public class Assistente extends Funcionario {
     private int numeroMatricula;
 
-    public void setAss(int numeroMatricula){
+    public void setMatricula(int numeroMatricula){
         this.numeroMatricula = numeroMatricula;
-
     }
     
-    public int getAss(){
+    public int getMatricula(){
         return numeroMatricula;
     }
 
@@ -14,5 +15,5 @@ public class Assistente extends Funcionario {
         return super.exibeDados(valor);
     }
 
-    
+
 }
