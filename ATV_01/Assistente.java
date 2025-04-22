@@ -11,8 +11,8 @@ public class Assistente extends Funcionario {
         return numeroMatricula;
     }
 
-    public double exibeDados(double valor) {
-        return super.exibeDados(valor);
+    public void exibeDados() {
+        System.out.println("Matrícula: " + numeroMatricula);
     }
 
 

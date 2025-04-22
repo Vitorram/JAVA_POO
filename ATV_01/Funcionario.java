@@ -17,14 +17,16 @@ public class Funcionario {
         return salario;
     }
 
-    public double addAumento (double valor){
-        return addAumento(valor);
+    public void addAumento (double valor){
+        this.salario += valor;
     }
-    public double ganhoAnual (double ganhos){
-        return ganhoAnual(ganhos);
+    public double ganhoAnual (){
+        return salario * 12;
     }
-    public double exibeDados (double dados){
-        return exibeDados(dados);
+    public void exibeDados (double dados){
+        System.out.println("Nome: " + nome);
+        System.out.println("Salário: " + salario);
+        System.out.println("Ganho Anual: " + ganhoAnual());
     }
     
 }

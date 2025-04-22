@@ -1,11 +1,23 @@
 package ATV_01;
 
 public class Tecnico extends Assistente {
+    private double bonusSalarial;
 
-    float bonus;
+    public Tecnico(String nome, double salario, String numeroMatricula, double bonusSalarial) {
+        super();
+        this.bonusSalarial = bonusSalarial;
+    }
 
-    public double ganhoAnual(double valor) {
-        
-        return super.ganhoAnual(valor);
+    @Override
+    public double ganhoAnual() {
+        return (getSalario() + bonusSalarial) * 12;
+    }
+
+    public double getBonusSalarial() {
+        return bonusSalarial;
+    }
+
+    public void setBonusSalarial(double bonusSalarial) {
+        this.bonusSalarial = bonusSalarial;
     }
 }
