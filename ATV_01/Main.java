@@ -1,10 +1,7 @@
-package ATV_01;
-
-
-public class main {
-    public main(String[] args) {
-        Tecnico tecnico = new Tecnico("Carlos", 3000.0f, "T123", 500.0f);
-        Administrativo administrativo = new Administrativo("Ana", 2800.0f, "A456", "noite", 300.0f);
+public class Main {
+    public static void main(String[] args) {
+        Tecnico tecnico = new Tecnico("Carlos", 3000, "T123", 500);
+        Administrativo administrativo = new Administrativo("Fernanda", 2800, "A456", "noite", 300);
 
         System.out.println("Técnico:");
         tecnico.exibeDados();
@@ -14,5 +11,5 @@ public class main {
         System.out.println("Administrativo:");
         administrativo.exibeDados();
         System.out.println("Matrícula: " + administrativo.getMatricula());
-	}
+    }
 }
