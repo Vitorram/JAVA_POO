@@ -1,32 +1,40 @@
 public class exercicio2 {
     public static void main(String[] args) {
-        Agenda agenda = new Agenda(10);  // Cria uma agenda com capacidade para 10 contatos
+    ContaBancaria cc = new ContaCorrente(10, "ASAS", 500.00); 
+    ContaBancaria cp = new ContaPoupanca(10, "ASAS", 500.00); 
+    ContaUniversitaria conta = new ContaUniversitaria(101, "1234", 1000, 5.000f);
+    
+    //conta corrente indo felas
 
-        // Adicionando contatos
-        agenda.adicionarContato(new PessoaFisica("João Silva", "Rua A, 123", "joao@gmail.com", "123.456.789-00", "01/01/1980", "Solteiro"));
-        agenda.adicionarContato(new PessoaJuridica("Empresa X", "Av. B, 456", "contato@empresax.com", "12.345.678/0001-90", "123456789", "Empresa X Ltda"));
+    System.out.println("Conta corrente");
+    System.out.println("agencia: " + cc.getAgencia());
+    System.out.println("saldo disponivel: " + cc.getSaldo());
+    cc.aplicarTarifa();
+    System.out.println("saldo apos tarifa: " + cc.getSaldo());
+    cc.depositar(100);
+    System.out.println("saldo apos deposito: " + cc.getSaldo());
+    
+    System.out.println("\n\n");
 
-        // Visualizando todos os contatos
-        System.out.println("Contatos antes da ordenação:");
-        agenda.visualizarContatos();
+    System.out.println("Conta Poupança");
+    System.out.println("agencia: " + cp.getAgencia());
+    System.out.println("saldo disponivel: " + cp.getSaldo());
+    cp.aplicarTarifa();
+    System.out.println("saldo apos tarifa: " + cp.getSaldo());
+    cp.depositar(100);
+    System.out.println("deposito realizado, valor: 100 ");
+    System.out.println("saldo apos deposito: " + cp.getSaldo());
+    System.out.println("\n\n");
 
-        // Ordenando contatos
-        agenda.ordenarContatos();
-        System.out.println("\nContatos após a ordenação:");
-        agenda.visualizarContatos();
+    System.out.println("Conta universitaria");
+    System.out.println("agencia: " + conta.getAgencia());
+    System.out.println("saldo disponivel: " + conta.getSaldo());
+    conta.aplicarTarifa();
+    System.out.println("saldo apos tarifa: " + conta.getSaldo());
+    conta.depositarComLimite(100);
+    System.out.println("deposito realizado, valor: 100 ");
+    System.out.println("saldo apos deposito: " + conta.getSaldo());
 
-        // Pesquisando um contato
-        System.out.println("\nPesquisa por nome:");
-        Contato contato = agenda.pesquisarPorNome("João Silva");
-        if (contato != null) {
-            System.out.println(contato);
-        } else {
-            System.out.println("Contato não encontrado.");
-        }
 
-        // Removendo um contato
-        agenda.removerContato("João Silva");
-        System.out.println("\nContatos após remoção:");
-        agenda.visualizarContatos();
-    }
+}
 }
