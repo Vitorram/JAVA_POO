@@ -8,7 +8,7 @@ public class ContaCorrente extends ContaBancaria implements Transferencia, Pagam
 
     @Override
 public void transferir(ContaBancaria destino, double valor) {
-    if (valor < getSaldo()){
+    if (temSaldoSuficiente(valor)){
         this.sacar(valor);
         destino.depositar(valor);
         System.out.println("Trasferencia realizada");
@@ -21,7 +21,7 @@ public void transferir(ContaBancaria destino, double valor) {
 @Override
  public void pagarBoleto(String codigo, double valor) {
         double valorTotal = valor + 2.0;
-         if (valorTotal <= getSaldo()) {
+         if (temSaldoSuficiente(valor)) {
             sacar(valorTotal);
             System.out.println("Boleto de R$" + valor + " pago com taxa de R$2,00. Total debitado: R$" + valorTotal);
         } else {

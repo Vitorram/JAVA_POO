@@ -8,7 +8,7 @@ public class ContaEmpresarial extends ContaBancaria implements Transferencia, Pa
      @Override
  public void pagarBoleto(String codigo, double valor) {
         double valorTotal = valor + 2.0;
-         if (valorTotal <= getSaldo()) {
+         if (temSaldoSuficiente(valor)) {
             sacar(valorTotal);
             System.out.println("Boleto de R$" + valor + " pago com taxa de R$2,00. Total debitado: R$" + valorTotal);
         } else {
@@ -21,7 +21,7 @@ public class ContaEmpresarial extends ContaBancaria implements Transferencia, Pa
 
 @Override
 public void transferir(ContaBancaria destino, double valor) {
-    if (valor < getSaldo()){
+    if (temSaldoSuficiente(valor)){
         this.sacar(valor);
         destino.depositar(valor);
         System.out.println("Trasferencia realizada");
@@ -41,11 +41,11 @@ protected double calcularTarifaMensal(){
 public void sacar(double valor) {
     if (valor < 100) {
         System.out.println("Erro ao sacar: o valor mínimo para saque é R$100.");
-    } else if (valor > getSaldo()) {
-        System.out.println("Erro ao sacar: saldo insuficiente.");
+    } else if (temSaldoSuficiente(valor)) {
+       System.out.println("Saque de R$" + valor + " realizado com sucesso.");
     } else {
         super.sacar(valor);
-        System.out.println("Saque de R$" + valor + " realizado com sucesso.");
+        System.out.println("Erro ao sacar");
     }
 }
 

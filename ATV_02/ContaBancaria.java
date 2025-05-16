@@ -31,6 +31,9 @@ public abstract class ContaBancaria {
             System.out.println("Saldo insuficiente.");
         }
     }
+    protected boolean temSaldoSuficiente(double valor) {
+        return saldo >= valor;
+    }
 
     //metodo abstract
 

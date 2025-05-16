@@ -21,13 +21,9 @@ public class ContaUniversitaria extends ContaBancaria implements Transferencia {
     }
     @Override
 public void transferir(ContaBancaria destino, double valor) {
-    if (valor < getSaldo()) {
-
-        // Verifica se o destino é uma ContaUniversitaria
+    if (temSaldoSuficiente(valor)) {       
         if (destino instanceof ContaUniversitaria) {
             double saldoDestino = destino.getSaldo();
-
-            // Verifica se o saldo final ultrapassaria 5000
             if (saldoDestino + valor > 5000) {
                 System.out.println("Essa transferência ultrapassa o limite da Conta Universitária (R$5000).");
                 return;
