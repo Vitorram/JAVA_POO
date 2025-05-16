@@ -1,9 +1,17 @@
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+
 public class exercicio2 {
     public static void main(String[] args) {
+         List<ContaBancaria> contas = new ArrayList<>();
     ContaBancaria cc = new ContaCorrente(10, "ASAS", 500.00); 
     ContaBancaria cp = new ContaPoupanca(10, "ASAS", 500.00); 
-    ContaUniversitaria conta = new ContaUniversitaria(101, "1234", 1000, 5.000f);
-    
+    ContaUniversitaria conta = new ContaUniversitaria(101, "ALAMEIDAS", 1000, 5.000f);
+    ContaCorrente contaC = new ContaCorrente (21, "COMAAS", 300.00);
+    ContaEmpresarial ce = new ContaEmpresarial(001, "ELITE", 50123.00);
     //conta corrente indo felas
 
     System.out.println("Conta corrente");
@@ -35,6 +43,28 @@ public class exercicio2 {
     System.out.println("deposito realizado, valor: 100 ");
     System.out.println("saldo apos deposito: " + conta.getSaldo());
 
+
+    conta.transferir(cc, 100.0);
+    System.out.println("\n");
+    System.out.println("Trasferencia realizada, saldo disponivel em conta corrente: " + cc.getSaldo() + "\nSaldo em conta Universitaria: " +conta.getSaldo());
+ 
+
+    System.out.println("Trasferencia sendo programada de CC para Conta Universitaria");
+    contaC.transferir(conta, 9400);
+    System.out.println("Saldo em conta universitaria: " + conta.getSaldo());
+    System.out.println("\n");
+
+    contas.add(contaC);
+    contas.add(conta);
+    contas.add(ce);
+
+    RelatorioDeContas relatorio = new RelatorioDeContas();
+    relatorio.gerarRelatorio(contas);
+
+    ce.transferir(contaC, 2000);
+    System.out.println("Após trasferencia: ");
+    
+    relatorio.gerarRelatorio(contas);
 
 }
 }

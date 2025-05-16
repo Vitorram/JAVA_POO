@@ -1,4 +1,4 @@
-public class ContaUniversitaria extends ContaBancaria{
+public class ContaUniversitaria extends ContaBancaria implements Transferencia {
     private float limite = 5.000f;
 
     public ContaUniversitaria (int numero, String agencia, double saldo, float limite){
@@ -19,4 +19,29 @@ public class ContaUniversitaria extends ContaBancaria{
         }
 
     }
+    @Override
+public void transferir(ContaBancaria destino, double valor) {
+    if (valor < getSaldo()) {
+
+        // Verifica se o destino é uma ContaUniversitaria
+        if (destino instanceof ContaUniversitaria) {
+            double saldoDestino = destino.getSaldo();
+
+            // Verifica se o saldo final ultrapassaria 5000
+            if (saldoDestino + valor > 5000) {
+                System.out.println("Essa transferência ultrapassa o limite da Conta Universitária (R$5000).");
+                return;
+            }
+        }
+
+        this.sacar(valor);
+        destino.depositar(valor);
+        System.out.println("Transferência realizada");
+
+    } else {
+        System.out.println("Erro ao transferir: saldo insuficiente.");
+    }
+}
+
+    
 }

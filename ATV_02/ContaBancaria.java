@@ -24,6 +24,13 @@ public abstract class ContaBancaria {
         saldo -= tarifa;
         System.out.println("Tarifa mensal de R$ " + tarifa);
     }
+    public void sacar(double valor) {
+        if (valor <= saldo) {
+            saldo -= valor;
+        } else {
+            System.out.println("Saldo insuficiente.");
+        }
+    }
 
     //metodo abstract
 
